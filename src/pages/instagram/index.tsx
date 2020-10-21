@@ -2,7 +2,6 @@ import Layout from "../../components/Layout";
 import BasicMeta from "../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../components/meta/TwitterCardMeta";
-import {SocialList} from "../../components/SocialList";
 import Instafeed from "../../lib/instafeed.min"
 
 export default function Index() {
@@ -16,6 +15,7 @@ export default function Index() {
 
         const feed = new Instafeed({
             accessToken: tokenObj.token,
+            limit: 20,
         });
 
         feed.run();
@@ -30,7 +30,7 @@ export default function Index() {
             <style jsx global>{`
                 .instafeed {
                   display: grid;
-                  grid-template-columns: repeat(4, 1fr);
+                  grid-template-columns: repeat(2, 1fr);
                   grid-template-rows: repeat(3, 1fr);
                   grid-column-gap: 0.5rem;
                   grid-row-gap: 0.5rem;
